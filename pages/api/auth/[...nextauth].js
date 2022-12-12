@@ -10,6 +10,9 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
+  // pages: {
+  //   singIn: "/",
+  // },
   secret: process.env.JWT_SECRET,
 };
 

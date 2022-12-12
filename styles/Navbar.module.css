@@ -24,8 +24,9 @@
 
 .navMenu {
   /* border: solid 1px red; */
-  padding: 0.8rem;
-  color: aliceblue;
+  padding: 1rem;
+  /* margin: 0.5rem 0; */
+  /* color: aliceblue; */
   position: absolute;
   top: 0;
   right: 0;
@@ -34,16 +35,40 @@
 
 .navContent {
   display: none;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  margin: 0.8rem 0;
+  font-family: var(--primary-font);
+  color: #45607d;
   position: absolute;
-  background-color: #875e5e;
+  background-color: #ffffffff;
   min-width: 160px;
+  border-radius: 6px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
+  /* padding: 12px 16px; */
   z-index: 1;
+}
+
+.navItem {
+  /* border: solid 1px blue; */
+  padding: 1.1rem;
+  border-radius: 6px;
+}
+
+.navItem:hover {
+  /* color: #16385C; */
+  background-color: #f6f7f8;
+}
+
+.navItem:active {
+  color: var(--accent-primary-color);
 }
 
 .navMenu:hover .navContent {
   display: block;
+  box-shadow: -5px 7px 28px 0px rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: -5px 7px 28px 0px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: -5px 7px 28px 0px rgba(0, 0, 0, 0.8);
 }
 
 .menuIcon {

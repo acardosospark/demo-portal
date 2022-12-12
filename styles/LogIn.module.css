@@ -5,9 +5,10 @@
   display: flex;
   flex-flow: row nowrap;
 }
-
+  
 .animationWrapper {
   /* border: solid 2px blue; */
+  /* background-color: blue; */
   overflow: hidden;
   flex-basis: 60%;
 }

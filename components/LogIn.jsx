@@ -1,4 +1,4 @@
-import styles from "../styles/LoginComponent.module.css";
+import styles from "../styles/Login.module.css";
 import Image from "next/image";
 import ThreeCanvas from "./ThreeCanvas";
 import { useSession, signIn } from "next-auth/react";
@@ -9,12 +9,7 @@ const LoginComponent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.animationWrapper}>
-        <img
-          src="/login-bg.png"
-          layout="fill"
-          // objectFit="contain"
-          alt="bg image particle wave"
-        />
+        <img src="/login-bg.png" layout="fill" alt="bg image particle wave" />
       </div>
       <div className={styles.formWrapper}>
         <form className={styles.form} action="">
@@ -25,7 +20,13 @@ const LoginComponent = () => {
           />
           <h2 className={styles.subHeader}>Sales Demo Portal</h2>
           <div className={styles.formFields}>
-            <button onClick={() => signIn("f41450c5906ea8d04f76", { callbackUrl: "/" })}>Log in with SSO</button>
+            <button
+              onClick={() =>
+                signIn("f41450c5906ea8d04f76", { callbackUrl: "/" })
+              }
+            >
+              Log in with SSO
+            </button>
           </div>
         </form>
       </div>

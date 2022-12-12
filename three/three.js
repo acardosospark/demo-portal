@@ -6,7 +6,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 export default class Sketch {
   constructor(selector) {
     this.scene = new THREE.Scene();
-    this.scene.background = null;
+    // this.scene.background = "white";
     this.container = selector;
     this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
@@ -26,11 +26,23 @@ export default class Sketch {
       100
     );
 
-    const pointLight = new THREE.PointLight(0xffffff, 1.2);
-    pointLight.position.x = -20;
-    pointLight.position.y = 20;
-    pointLight.position.z = 20;
-    this.scene.add(pointLight);
+    const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
+
+    let container, stats;
+    let camera, scene, renderer;
+
+    let particles, count = 0;
+
+    let mouseX = 0, mouseY = 0;
+
+    let windowHalfX = window.innerWidth / 2;
+    let windowHalfY = window.innerHeight / 2;
+
+    // const pointLight = new THREE.PointLight(0xffffff, 1.2);
+    // pointLight.position.x = -20;
+    // pointLight.position.y = 20;
+    // pointLight.position.z = 20;
+    // this.scene.add(pointLight);
 
     this.camera.position.set(-2, 8, 5);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -42,19 +54,17 @@ export default class Sketch {
     material.color = new THREE.Color(0xff0000);
     this.sphere = new THREE.Mesh(geometry, material);
 
+    // setup XXXXXX
+    const numParticles = (50 * 50);
+
     // this.addDog();
     this.resize();
     this.render();
     this.setupResize();
   }
 
-  settings() {
-    let that = this;
-    this.settings = {
-      progress: 0,
-    };
-    this.gui = new dat.GUI();
-    this.gui.add(this.settings, "progress", 0, 1, 0.01);
+  init() {
+
   }
 
   setupResize() {
