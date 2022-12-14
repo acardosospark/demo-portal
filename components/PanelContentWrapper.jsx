@@ -20,9 +20,9 @@ const PanelContentWrapper = ({ title }) => {
 
   useEffect(() => {}, [demoObj]);
 
-  const handleOpenResource = (id) => {
-    console.log("capture resource click here... ", id);
-    posthog.capture("open-resource-click", { id });
+  const handleOpenResource = (id, media) => {
+    // console.log("capture resource click here... ", id);
+    posthog.capture("open-resource-click", { id, media });
   };
 
   return (
@@ -45,7 +45,8 @@ const PanelContentWrapper = ({ title }) => {
                     <li
                       onClick={() =>
                         handleOpenResource(
-                          `${context.panelState.activeDemoCard}-ds-${i}`
+                          `${context.panelState.activeDemoCard}-ds-${i}`,
+                          m
                         )
                       }
                       key={`ds-${i}`}
@@ -80,7 +81,8 @@ const PanelContentWrapper = ({ title }) => {
                     <li
                       onClick={() =>
                         handleOpenResource(
-                          `${context.panelState.activeDemoCard}-cp-${i}`
+                          `${context.panelState.activeDemoCard}-cp-${i}`,
+                          m
                         )
                       }
                       key={`cp-${i}`}
@@ -115,7 +117,8 @@ const PanelContentWrapper = ({ title }) => {
                     <li
                       onClick={() =>
                         handleOpenResource(
-                          `${context.panelState.activeDemoCard}-pr-${i}`
+                          `${context.panelState.activeDemoCard}-pr-${i}`,
+                          m
                         )
                       }
                       key={`pr-${i}`}
@@ -147,7 +150,8 @@ const PanelContentWrapper = ({ title }) => {
                     <li
                       onClick={() =>
                         handleOpenResource(
-                          `${context.panelState.activeDemoCard}-vi-${i}`
+                          `${context.panelState.activeDemoCard}-vi-${i}`,
+                          m
                         )
                       }
                       key={`vi-${i}`}

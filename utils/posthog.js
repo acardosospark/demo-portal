@@ -2,6 +2,11 @@ const PostHogUtils = {
   filterClickEvent(eventID, dataSet) {
     return dataSet.filter((d) => d.properties.id === eventID);
   },
+  filterEvents(eventID, dataSet) {
+    let filterData = dataSet.filter((data) => typeof data.properties.id !== 'undefined');
+    filterData = filterData.filter((fdata) => fdata.properties.id.includes(eventID));
+    return filterData;
+  },
   async getRecursiveEventData(
     URL = null,
     first = true,

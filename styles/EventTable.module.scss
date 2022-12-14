@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    // height: 30vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.eventTable {
+    border: solid 1px blue;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 10%;
+    height: 30vh;
+}
+
+.eventTable th, .eventTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.eventTable tr:nth-child(even){background-color: #f2f2f2;}
+
+.eventTable tr:hover {background-color: #ddd;}
+
+.eventTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #041B2C;
+  color: white;
+}

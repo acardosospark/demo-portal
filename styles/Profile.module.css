@@ -1,16 +1,23 @@
 .container {
   font-family: var(--primary-font);
   /* border: solid 2px red; */
-  height: 60vh;
+  /* height: 100vh; */
   width: 100vw;
   display: flex;
-  justify-content: space-around;
-  margin: 3rem 0;
+  flex-flow: column nowrap;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin: 3rem 0; */
+}
+
+.container > *:nth-child(2) {
+  /* border: solid 1px blue; */
+  align-self: center;
 }
 
 .header {
   /* border: solid 2px blue; */
-  margin: 1.5rem;
+  margin: 1.5rem 10%;
   display: flex;
   flex-flow: column;
   gap: 0.8rem;

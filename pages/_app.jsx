@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import Layout from "../components/Layout";
 import AppContext from "../components/AppContext";
 import { SessionProvider } from "next-auth/react";
@@ -9,9 +9,6 @@ import posthog from "posthog-js";
 function MyApp({ Component, pageProps, session }) {
   const router = useRouter();
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  // const [chartState, setChartState] = useState({
-
-  // });
   const [panelState, setPanelState] = useState({
     activeDemoCard: null,
     isGlobalPanelOpen: null,
