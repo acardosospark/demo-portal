@@ -1,4 +1,4 @@
-import styles from "../styles/Login.module.css";
+import styles from "../styles/LogIn.module.css";
 import Image from "next/image";
 import ThreeCanvas from "./ThreeCanvas";
 import { useSession, signIn } from "next-auth/react";
