@@ -13,6 +13,10 @@ const Layout = ({ children }) => {
   // usePostHog('phc_jzSUsTcbTXr9jeM6AMlk9qkHU9Mv9WzsadvKtXjwQ7k', { api_host: 'https://app.posthog.com' })
   const { data: session } = useSession();
 
+  useEffect(() => {
+    console.log("what am I doing ---> ", session);
+  }, []);
+
   if (session) {
     return (
       <div className={styles.layoutContainer}>
