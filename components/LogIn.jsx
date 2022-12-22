@@ -22,7 +22,7 @@ const LoginComponent = () => {
           <div className={styles.formFields}>
             <button
               onClick={() =>
-                signIn("f41450c5906ea8d04f76", { callbackUrl: "https://demo-portal-olive.vercel.app/" })
+                signIn("f41450c5906ea8d04f76", { callbackUrl: "/" })
               }
             >
               Log in with SSO
