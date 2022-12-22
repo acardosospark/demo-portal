@@ -15,6 +15,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.nav}>
         <div className={styles.navMenu}>
+          <button onClick={() => signOut()}>Sign out</button>
           <ul className={styles.navContent}>
             <li>
               <Link href="/" legacyBehavior>

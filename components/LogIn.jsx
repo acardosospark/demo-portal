@@ -27,6 +27,13 @@ const LoginComponent = () => {
             >
               Log in with SSO
             </button>
+            {/* <button
+              onClick={() =>
+                signIn("ae4890b0-5d34-013b-c060-0222a468834b161752", { callbackUrl: "/" })
+              }
+            >
+              TEST LOGIN
+            </button> */}
           </div>
         </form>
       </div>
