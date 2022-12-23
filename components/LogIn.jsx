@@ -22,7 +22,7 @@ const LoginComponent = () => {
           <div className={styles.formFields}>
             <button
               onClick={() =>
-                signIn("1609ea435d14bac33066", { callbackUrl: "/" })
+                signIn()
               }
             >
               Log in with SSO

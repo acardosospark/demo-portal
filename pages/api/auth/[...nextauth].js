@@ -19,7 +19,7 @@ export const authOptions = {
   // pages: {
   //   singIn: "/",
   // },
-  secret: process.env.JWT_SECRET,
+  // secret: process.env.JWT_SECRET,
 };
 
 export default NextAuth(authOptions);
