@@ -1,10 +1,8 @@
-
-
 import styles from "../styles/Layout.module.css";
 import LogIn from "./LogIn";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useSession } from "next-auth/react";
 // import { usePostHog } from 'next-use-posthog';
 // import posthog from 'posthog-js';

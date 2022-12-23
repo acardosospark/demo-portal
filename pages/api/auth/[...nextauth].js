@@ -9,11 +9,11 @@ export const authOptions = {
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    OneLoginProvider({
-      clientId: process.env.ONELOGIN_CLIENT_ID,
-      clientSecret: process.env.ONELOGIN_CLIENT_SECRET,
-      issuer: process.env.ONELOGIN_ISSUER,
-    }),
+    // OneLoginProvider({
+    //   clientId: process.env.ONELOGIN_CLIENT_ID,
+    //   clientSecret: process.env.ONELOGIN_CLIENT_SECRET,
+    //   issuer: process.env.ONELOGIN_ISSUER,
+    // }),
     // ...add more providers here
   ],
   // pages: {
