@@ -21,9 +21,10 @@ const LoginComponent = () => {
           <h2 className={styles.subHeader}>Sales Demo Portal</h2>
           <div className={styles.formFields}>
             <button
-              onClick={() =>
-                signIn()
-              }
+              onClick={(e) => {
+                e.preventDefault();
+                signIn();
+              }}
             >
               Log in with SSO
             </button>
