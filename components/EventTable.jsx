@@ -1,6 +1,6 @@
 import styles from "../styles/EventTable.module.scss";
-import { useState, useeEffect, useContext } from "react";
-import { useEffect } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
+import { CSVLink, CSVDownload } from "react-csv";
 
 const EventTable = ({ eventData }) => {
   const [tableData, setTableData] = useState([]);
@@ -8,11 +8,14 @@ const EventTable = ({ eventData }) => {
 
   useEffect(() => {
     let dataSlice = eventData.slice(0, 4);
+    console.log("🚧 🦺 working here event table data 🚧 🦺 ===> ", eventData);
+
     setTableData([...dataSlice]);
   }, []);
 
   useEffect(() => {
     console.log("loading event table... ", tableData.length);
+    // console.log("🚧 🦺 working here 🚧 🦺 ===> ", tableData);
     let rows = [];
     tableData.map((row, i) => {
       console.log("setting up rows -> ", row.properties.id);
@@ -59,11 +62,26 @@ const EventTable = ({ eventData }) => {
       console.log("here it is ==>", typeof rows[i]);
     });
 
-    setRows([...rows]);
+    if (rows.length !== 0) {
+      console.log("🚧 🦺 working here 🚧 🦺 rows ===> ", rows);
+
+      setRows([...rows]);
+    }
   }, [tableData]);
 
   return (
     <div className={styles.container}>
+      <CSVLink className={styles.CSVDownload} data={rows}>
+        <h4>Download</h4>
+        <span>
+          <img
+            className={styles.downloadIcon}
+            src="/download.png"
+            alt="menu icon"
+          />
+        </span>
+      </CSVLink>
+      ;
       <table className={styles.eventTable}>
         <tr>
           <th>Demo</th>
@@ -79,7 +97,11 @@ const EventTable = ({ eventData }) => {
             <td>{row.resource_type}</td>
             <td>{row.resource}</td>
             <td>{row.timestamp}</td>
-            <td><a href={row.media} target="_blank" rel="noreferrer">Media</a></td>
+            <td>
+              <a href={row.media} target="_blank" rel="noreferrer">
+                Media
+              </a>
+            </td>
           </tr>
         ))}
       </table>

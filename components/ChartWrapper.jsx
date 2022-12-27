@@ -1,9 +1,11 @@
 import styles from "../styles/ChartWrapper.module.scss";
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useRef } from "react";
 import dateUtils from "../utils/dates";
 import PostHogUtils from "../utils/posthog";
 import "chart.js/auto";
 import EventTable from "../components/EventTable";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 // chart
 import {
   Chart as ChartJS,
@@ -195,6 +197,7 @@ const ChartWrapper = () => {
   const [demoClicks, setDemoClicks] = useState([]);
   const [resourceClicks, setResourceClicks] = useState([]);
   const [havePHData, setHavePHData] = useState(false);
+  // const tableStateRef = useRef(false);
 
   useEffect(() => {
     PostHogUtils.getRecursiveEventData(
@@ -260,6 +263,8 @@ const ChartWrapper = () => {
 
   useEffect(() => {
     if (resourceClicks.length !== 0) {
+      // console.log("🚧 🦺 working here 🚧 🦺 ===> ", resourceClicks);
+
       let maResClicks = PostHogUtils.filterEvents("ma", resourceClicks);
       let vaResClicks = PostHogUtils.filterEvents("va", resourceClicks);
       let rsResClicks = PostHogUtils.filterEvents("rs", resourceClicks);
@@ -283,7 +288,13 @@ const ChartWrapper = () => {
     <div className={styles.container}>
       {havePHData ? (
         <div className={styles.contentWrapper}>
-          <EventTable eventData={resourceClicks} />
+          {resourceClicks && resourceClicks.length !== 0 ? (
+            <EventTable eventData={resourceClicks} />
+          ) : (
+            <>
+              <Skeleton count={7} /> 
+            </>
+          )}
           <div className={`${styles.chartWrapper} ${styles.pie}`}>
             <Doughnut data={donutData} />
           </div>

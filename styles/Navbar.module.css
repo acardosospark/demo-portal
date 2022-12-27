@@ -1,5 +1,6 @@
 .container {
   background-image: url("/nav-bg.jpeg");
+  /* border: solid 2px red; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -21,6 +22,7 @@
 }
 
 .navMenu {
+  /* border: solid 2px purple; */
   color: aliceblue;
   position: absolute;
   top: 0;
@@ -31,16 +33,27 @@
   justify-content: flex-end;
   align-items: center;
   height: 4rem;
-  width: 18vw;
+  width: 25vw;
 }
 
 .navContent {
+  /* border: solid 2px red; */
   display: flex;
   gap: 1rem;
   flex-flow: row nowrap;
   align-items: space-around;
+  justify-content: baseline;
   font-family: var(--primary-font);
   min-width: 160px;
+}
+
+.navContent > li {
+  /* border: solid 2px blue; */
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1.2rem;
+  /* padding: 0 0 0.2rem 0; */
+  align-items: center;
 }
 
 .navContent a {

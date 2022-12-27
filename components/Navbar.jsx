@@ -15,7 +15,7 @@ const Navbar = () => {
     <div className={styles.container}>
       <div className={styles.nav}>
         <div className={styles.navMenu}>
-          <button onClick={() => signOut()}>Sign out</button>
+          {/* <button onClick={() => signOut()}>Sign out</button> */}
           <ul className={styles.navContent}>
             <li>
               <Link href="/" legacyBehavior>
@@ -27,12 +27,17 @@ const Navbar = () => {
                 <a>Profile</a>
               </Link>
             </li>
+            <li>
+              <a onClick={() => signOut()}>Sign Out</a>
+              <span>
+                <img
+                  className={styles.menuIcon}
+                  src="/menu-icon.png"
+                  alt="menu icon"
+                />
+              </span>
+            </li>
           </ul>
-          <img
-            className={styles.menuIcon}
-            src="/menu-icon.png"
-            alt="menu icon"
-          />
         </div>
         <img
           className={`${styles.img}`}

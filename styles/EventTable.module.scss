@@ -29,3 +29,23 @@
   background-color: #041B2C;
   color: white;
 }
+
+.CSVDownload {
+    // border: solid 2px red;
+    background-color: #041B2C;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    height: 1.8rem;
+    width: 9rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #f2f2f2;
+    border-radius: 0.4rem;
+    text-decoration: none;
+}
+
+.downloadIcon {
+    height: 1.2rem;
+    width: 1.8rem;
+}

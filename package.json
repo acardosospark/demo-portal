@@ -10,19 +10,24 @@
   },
   "dependencies": {
     "@react-three/fiber": "^8.9.1",
+    "@upstash/redis": "^1.18.4",
     "chart.js": "^4.0.1",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
     "faker": "^6.6.6",
     "fetch-paginate": "^6.1.0",
+    "file-saver": "^2.0.5",
     "next": "13.0.2",
     "next-auth": "^4.16.3",
     "next-use-posthog": "^1.16.1",
     "posthog-js": "^1.35.0",
     "react": "18.2.0",
     "react-chartjs-2": "^5.0.1",
+    "react-csv": "^2.2.2",
     "react-dom": "18.2.0",
+    "react-loading-skeleton": "^3.1.0",
     "sass": "^1.56.2",
-    "three": "^0.146.0"
+    "three": "^0.146.0",
+    "xlsx": "^0.18.5"
   }
 }

@@ -80,10 +80,6 @@ export default class Sketch {
   }
 
   render() {
-    let dog = this.scene.getObjectByName("dog");
-    if (dog) {
-      dog.rotation.y += 0.001;
-    }
 
     requestAnimationFrame(this.render.bind(this));
     this.renderer.render(this.scene, this.camera);

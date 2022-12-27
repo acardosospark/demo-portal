@@ -7,6 +7,7 @@ import Dashboard from "./../components/Dashboard";
 import AppContext from "../components/AppContext";
 import PanelContentWrapper from "../components/PanelContentWrapper";
 import Script from "next/script";
+import { Redis } from '@upstash/redis'
 
 export default function Home() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -14,10 +15,26 @@ export default function Home() {
   const closeBtnRef = useRef(null);
   const context = useContext(AppContext);
   useEffect(() => {
+
     setIsPanelOpen(context.panelState.isGlobalPanelOpen);
+    // redisHelper();
 
     panelRef.current.style.display = "none";
   }, []);
+
+  // const redisHelper = async () => {
+  //   const redis = new Redis({
+  //     url: 'https://us1-picked-squirrel-37809.upstash.io',
+  //     token: 'AZOxASQgOWRmNTIxZjEtYmJlMC00MzdjLWI2ZGEtYmYwOTFlMTMyNjViNWRkMGYwODAwMmE3NDg3Nzg5NzRmMmM1Mjc3MzEyZGU=',
+  //   });
+
+  //   const data = await redis.set('bob', 'billy');
+
+  //   const x = await redis.get('bob');
+
+  //   console.log("redis data ===> ", x);
+
+  // }
 
   useEffect(() => {
     if (context.panelState.isGlobalPanelOpen) {

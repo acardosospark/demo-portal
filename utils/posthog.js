@@ -21,8 +21,11 @@ const PostHogUtils = {
 
     if (!first && URL === null) {
       console.log(
-        `🤖 Done fetching ${eventData.length} ${eventName} events...  🏁`
+        `⚙️ fetching ${eventData.length} ${eventName} events...`
       );
+
+      // console.log("🚧 🦺 working here 🚧 🦺 ===> ", typeof eventData);
+      // console.log("🚧 🦺 working here 🚧 🦺 ===> ", eventData);
       setData([...eventData]);
       return `🤖 Done fetching ${eventName} event data...  🏁`;
     }
