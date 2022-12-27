@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps, session }) {
           type: "prototype",
           title: "Clickthrough Prototypes",
           titleIcon: "/prototype-icon.png",
-          mediaIcon: "/figma-logo.svg",
+          mediaIcon: "/Figma-logo.svg",
           media: [
             "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
             "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
@@ -81,7 +81,7 @@ function MyApp({ Component, pageProps, session }) {
           type: "prototype",
           title: "Clickthrough Prototypes",
           titleIcon: "/prototype-icon.png",
-          mediaIcon: "/figma-logo.svg",
+          mediaIcon: "/Figma-logo.svg",
           media: [
             "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
             "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
@@ -177,7 +177,7 @@ function MyApp({ Component, pageProps, session }) {
           type: "prototype",
           title: "Clickthrough Prototypes",
           titleIcon: "/prototype-icon.png",
-          mediaIcon: "/figma-logo.svg",
+          mediaIcon: "/Figma-logo.svg",
           media: [
             "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
             "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
