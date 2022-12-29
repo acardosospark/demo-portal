@@ -1,7 +1,8 @@
-import styles from "../styles/LogIn.module.css";
+import styles from "../styles/LogIn.module.scss";
 import Image from "next/image";
-import ThreeCanvas from "./ThreeCanvas";
+import ThreeScene from "./ThreeScene";
 import { useSession, signIn } from "next-auth/react";
+
 
 const LoginComponent = () => {
   const { data: session } = useSession();
@@ -9,14 +10,15 @@ const LoginComponent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.animationWrapper}>
-        <img src="/login-bg.png" layout="fill" alt="bg image particle wave" />
+      {/* <ThreeScene /> */}
+        {/* <img src="/login-bg.png" layout="fill" alt="bg image particle wave" /> */}
       </div>
       <div className={styles.formWrapper}>
         <form className={styles.form} action="">
           <img
             className={`${styles.img} ${styles.title}`}
             src="/spark-logo.png"
-            alt="saprk logo"
+            alt="spark logo"
           />
           <h2 className={styles.subHeader}>Sales Demo Portal</h2>
           <div className={styles.formFields}>

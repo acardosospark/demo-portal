@@ -9,6 +9,7 @@ import posthog from "posthog-js";
 function MyApp({ Component, pageProps, session }) {
   const router = useRouter();
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [sparkUID, setSparkUID] = useState(null);
   const [panelState, setPanelState] = useState({
     activeDemoCard: null,
     isGlobalPanelOpen: null,
@@ -26,7 +27,6 @@ function MyApp({ Component, pageProps, session }) {
           mediaIcon: "/link-icon.png",
           media: [
             "https://demo-3.sp.sales.sparkcognition.com/login",
-            "https://demo-3.sp.sales.sparkcognition.com/login",
           ],
         },
         clickProtos: {
@@ -35,9 +35,9 @@ function MyApp({ Component, pageProps, session }) {
           titleIcon: "/prototype-icon.png",
           mediaIcon: "/Figma-logo.svg",
           media: [
-            "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
-            "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
-            "https://www.figma.com/file/CCocAQeNX8QPJEotDtSSu5/Sales-Demo-Portal?node-id=81%3A24267&t=2PCdDCrmZWnAZMQD-0",
+            "https://www.figma.com/proto/jW42bGc3IPzLJnRK1mHL2F/SP-1.6-Story?page-id=0%3A1&node-id=1%3A2&viewport=718%2C1630%2C0.19&scaling=scale-down&starting-point-node-id=1%3A1701",
+            "https://playground.p4d.sparkcognition.dev/sites/pemex-system-diagram/",
+            "https://xd.adobe.com/view/0e2457e4-fa71-4760-6630-c4443665b00e-7815/",
           ],
         },
         presentations: {
@@ -46,9 +46,9 @@ function MyApp({ Component, pageProps, session }) {
           titleIcon: "/presentation-icon.png",
           mediaIcon: "/ppt-icon.png",
           media: [
-            "https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true",
-            "https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true",
-            "https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true",
+            "https://docs.google.com/presentation/d/1egxeMLYPzgCENJEoyjfBJUczT4R4-FdqT04kP7vDF5I/edit?usp=sharing",
+            "https://docs.google.com/presentation/d/1TluMzmBzin1-uRu8K1g5RMKvRbMlmsfk/edit?usp=sharing&ouid=111164062107044588981&rtpof=true&sd=true",
+            "https://docs.google.com/presentation/d/1uZwWUR3O5aUg3QId7zLuY2baYUF_uHDE/edit?usp=sharing&ouid=111164062107044588981&rtpof=true&sd=true",
           ],
         },
         videos: {
@@ -57,8 +57,9 @@ function MyApp({ Component, pageProps, session }) {
           titleIcon: "/video-icon.png",
           mediaIcon: "/link-icon.png",
           media: [
-            "https://drive.google.com/file/d/17Fc1a-SRX5Pb3PgSAaJm9kZ6BxN2v4kf/view?usp=sharing",
-            "https://drive.google.com/file/d/17Fc1a-SRX5Pb3PgSAaJm9kZ6BxN2v4kf/view?usp=sharing",
+            "https://content.sparkcognition.com/i/OcA2nzUDHQNVPV5qUQcAwAJs___W99T4wFyylmAr896ZkPLUSSIGNYwGUjoYxWqr1KY2VQmYaJYbAGyj4vTeQciPjZb2vDVpQaxoEa8883GdmXLEmGfEzndOjMCp8JdgN6gESr279",
+            "https://content.sparkcognition.com/i/OcA2nzUDHQNVPV5qUQcAwAJs___W99T4wFyylmAr896ZkPLUSSIGNYwGUjoYxWqr1KY2VQmYazVPbEopyL___W1LNs2JHgDAZyfZGyN5dPLUSSIGNjnEVPyp1rZSVRvQNFkn3oPLUSSIGNt0SdNihbXCU",
+            "https://content.sparkcognition.com/i/OcA2nzUDHQNVPV5qUQcAwAJs___W99T4wFyylmAr896ZkPLUSSIGNYwGUjoYxWqr1KY2VQmYaHKqv2Tg6OTwypU50PUX1O7P955U9Vjkb2FXlMdvNE2UEpfRtwXzNOd2FPQ3UZAgM",
           ],
         },
       },
@@ -211,7 +212,7 @@ function MyApp({ Component, pageProps, session }) {
 
   useEffect(() => {
     // Init PostHog
-    posthog.init("phc_jzSUsTcbTXr9jeM6AMlk9qkHU9Mv9WzsadvKtXjwQ7k", {
+    posthog.init("phc_pr9HtpWLhapxZOz7vY8MH8kjgNhQw2OGZMFLRGoz0oD", {
       api_host: "https://app.posthog.com",
     });
 
@@ -242,6 +243,8 @@ function MyApp({ Component, pageProps, session }) {
     panelState,
     setActiveDemoCard,
     setGlobalPanelOpen,
+    sparkUID,
+    setSparkUID
   };
 
   return (

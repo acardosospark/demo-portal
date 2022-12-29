@@ -3,10 +3,16 @@ const PostHogUtils = {
     return dataSet.filter((d) => d.properties.id === eventID);
   },
   filterEvents(eventID, dataSet) {
-    let filterData = dataSet.filter((data) => typeof data.properties.id !== 'undefined');
-    filterData = filterData.filter((fdata) => fdata.properties.id.includes(eventID));
+    let filterData = dataSet.filter(
+      (data) => typeof data.properties.id !== "undefined"
+    );
+    filterData = filterData.filter((fdata) =>
+      fdata.properties.id.includes(eventID)
+    );
     return filterData;
   },
+  // STEP 1:
+  // - create get person, add person, list persons
   async getRecursiveEventData(
     URL = null,
     first = true,
@@ -20,9 +26,7 @@ const PostHogUtils = {
     }
 
     if (!first && URL === null) {
-      console.log(
-        `⚙️ fetching ${eventData.length} ${eventName} events...`
-      );
+      console.log(`⚙️ fetching ${eventData.length} ${eventName} events...`);
 
       // console.log("🚧 🦺 working here 🚧 🦺 ===> ", typeof eventData);
       // console.log("🚧 🦺 working here 🚧 🦺 ===> ", eventData);
@@ -35,7 +39,7 @@ const PostHogUtils = {
         const res = await fetch(`${URL}`, {
           method: "GET",
           headers: {
-            Authorization: `Bearer phx_5Sf1tL8OKhIUTh9cwb9mcNFfaAWFHc69MqlZW4xUQ10`,
+            Authorization: `Bearer phx_L00Urvk4g4BMTtbIjZOOazM7P9TELuXTHSSFkYM0U8p`,
             "Content-Type": "application/json",
             Accept: "application/json",
           },
@@ -48,13 +52,13 @@ const PostHogUtils = {
 
         URL = data.next;
       } else {
-        URL = `https://app.posthog.com/api/projects/16343/events/`;
+        URL = `https://app.posthog.com/api/projects/18256/events/`;
         first = false;
 
         const res = await fetch(`${URL}`, {
           method: "GET",
           headers: {
-            Authorization: `Bearer phx_5Sf1tL8OKhIUTh9cwb9mcNFfaAWFHc69MqlZW4xUQ10`,
+            Authorization: `Bearer phx_L00Urvk4g4BMTtbIjZOOazM7P9TELuXTHSSFkYM0U8p`,
             "Content-Type": "application/json",
             Accept: "application/json",
           },

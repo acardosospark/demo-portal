@@ -1,7 +1,8 @@
 .canvas {
     /* z-index: -1; */
-    /* border: solid 2px red; */
-    width: 50vw;
-    height: 50vh;
-    overflow: hidden;
+    border: solid 2px red;
+    background: rgb(140, 122, 122);
+    width: 800px;
+    height: 800px;
+    /* overflow: hidden; */
 }

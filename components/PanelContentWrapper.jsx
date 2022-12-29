@@ -4,10 +4,19 @@ import SubPanel from "./SubPanel";
 import AppContext from "./AppContext";
 import Link from "next/link";
 import posthog from "posthog-js";
+import { useSession } from "next-auth/react";
 
 const PanelContentWrapper = ({ title }) => {
   const [demoObj, setDemoObj] = useState([]);
+  const [sessionID, setSessionID] = useState(null);
   const context = useContext(AppContext);
+  const { data: session } = useSession();
+
+  useEffect(() => {
+    if (session) {
+      setSessionID(session.user.email);
+    }
+  }, []);
 
   useEffect(() => {
     // console.log("holy shit ---> ", context.panelState.activeDemoCard);
@@ -22,6 +31,8 @@ const PanelContentWrapper = ({ title }) => {
 
   const handleOpenResource = (id, media) => {
     // console.log("capture resource click here... ", id);
+    // STEP 4: append distinct id and other person related information to the open resource event
+    posthog.identify(sessionID);
     posthog.capture("open-resource-click", { id, media });
   };
 
@@ -51,11 +62,7 @@ const PanelContentWrapper = ({ title }) => {
                       }
                       key={`ds-${i}`}
                     >
-                      <a
-                        href="https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
+                      <a href={m} target="_blank" rel="noreferrer">
                         <img
                           src={demoObj[0].demoSites.mediaIcon}
                           alt="anchor icon"
@@ -87,11 +94,7 @@ const PanelContentWrapper = ({ title }) => {
                       }
                       key={`cp-${i}`}
                     >
-                      <a
-                        href="https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
+                      <a href={m} target="_blank" rel="noreferrer">
                         <img
                           src={demoObj[0].clickProtos.mediaIcon}
                           alt="anchor icon"
@@ -123,11 +126,7 @@ const PanelContentWrapper = ({ title }) => {
                       }
                       key={`pr-${i}`}
                     >
-                      <a
-                        href="https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
+                      <a href={m} target="_blank" rel="noreferrer">
                         <img
                           src={demoObj[0].presentations.mediaIcon}
                           alt="anchor icon"
@@ -156,11 +155,7 @@ const PanelContentWrapper = ({ title }) => {
                       }
                       key={`vi-${i}`}
                     >
-                      <a
-                        href="https://docs.google.com/presentation/d/1FqzLK-ia3lLc2rau4xxeGdrLMbxEMXiM/edit?usp=sharing&ouid=105375117270411739184&rtpof=true&sd=true"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
+                      <a href={m} target="_blank" rel="noreferrer">
                         <img
                           src={demoObj[0].videos.mediaIcon}
                           alt="anchor icon"

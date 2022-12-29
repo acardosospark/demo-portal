@@ -10,9 +10,9 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET,
     }),
     // OneLoginProvider({
-    //   clientId: process.env.ONELOGIN_CLIENT_ID,
-    //   clientSecret: process.env.ONELOGIN_CLIENT_SECRET,
-    //   issuer: process.env.ONELOGIN_ISSUER,
+    //   clientId: "ae4890b0-5d34-013b-c060-0222a468834b161752",
+    //   clientSecret: "5e22f8eb07cbe1bcfa2a22c6da7ec9eb3d21fe3de316d7c8c1df288a6e1347fc",
+    //   issuer: "https://sparkcognition.onelogin.com",
     // }),
     // ...add more providers here
   ],

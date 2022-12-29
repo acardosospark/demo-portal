@@ -4,8 +4,8 @@ import dateUtils from "../utils/dates";
 import PostHogUtils from "../utils/posthog";
 import "chart.js/auto";
 import EventTable from "../components/EventTable";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 // chart
 import {
   Chart as ChartJS,
@@ -292,7 +292,7 @@ const ChartWrapper = () => {
             <EventTable eventData={resourceClicks} />
           ) : (
             <>
-              <Skeleton count={7} /> 
+              <Skeleton count={7} />
             </>
           )}
           <div className={`${styles.chartWrapper} ${styles.pie}`}>

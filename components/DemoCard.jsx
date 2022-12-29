@@ -2,14 +2,18 @@ import Link from "next/link";
 import styles from "../styles/DemoCard.module.css";
 import AppContext from "./AppContext";
 import { useRef, useState, useEffect, useContext } from "react";
+import { useSession } from "next-auth/react";
 import posthog from "posthog-js";
+import { v4 as uuidv4 } from 'uuid';
 
-const DemoCard = ({ id, title, description }) => {
+const DemoCard = ({ id, title, description, media }) => {
   // secret menu
   const [isActive, setIsActive] = useState(false);
   const [isSecretMenuActive, setIsSecretMenuActive] = useState(false);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const secretMenuRef = useRef(null);
+  const [sessionID, setSessionID] = useState(null);
+  const { data: session } = useSession();
 
   // secret panel
   const secretPanelRef = useRef(null);
@@ -17,6 +21,10 @@ const DemoCard = ({ id, title, description }) => {
 
   useEffect(() => {
     setIsPanelOpen(context.panelState.isGlobalPanelOpen);
+    if (session) {
+      console.log("user email here 🚧 ", session.user.email);
+      setSessionID(session.user.email);
+    }
   }, []);
 
   useEffect(() => {
@@ -63,6 +71,9 @@ const DemoCard = ({ id, title, description }) => {
 
   const handleOpenDemo = () => {
     console.log("capture demo click -> ", title);
+    // STEP 3: append distinct id and other person related information to the open demo event
+    // console.log("user session email here (demo click) 🏁 ----> ", `${sessionID}-${uuidv4()}`);
+    posthog.identify(session.user.email);
     posthog.capture("open-demo-click", { title, id });
   };
 
@@ -92,10 +103,7 @@ const DemoCard = ({ id, title, description }) => {
         <ul>
           <li onClick={handleOpenDemo}>
             {" "}
-            <Link
-              href="https://app.iwizardsolutions.com/irisv2/login?returnUrl=%2Fhome%2Fdashboard"
-              target="_blank"
-            >
+            <Link className={styles.demoLink} href={media} target="_blank">
               Open Demo
             </Link>
           </li>
@@ -104,10 +112,7 @@ const DemoCard = ({ id, title, description }) => {
       </div>
       <div className={styles.description}>{description}</div>
       <button onClick={handleOpenDemo} className={styles.cardButton}>
-        <Link
-          href="https://app.iwizardsolutions.com/irisv2/login?returnUrl=%2Fhome%2Fdashboard"
-          target="_blank"
-        >
+        <Link className={styles.demoLink} href={media} target="_blank">
           Open Demo
         </Link>
       </button>

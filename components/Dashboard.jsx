@@ -34,6 +34,7 @@ const Dashboard = () => {
                 id={demo.id}
                 title={demo.title}
                 description={demo.description}
+                media={demo.demoSites.media[0]}
               />
             </li>
           ))
